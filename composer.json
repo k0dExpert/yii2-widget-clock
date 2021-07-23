@@ -1,0 +1,25 @@
+{
+    "name": "kodexpert/yii2-widget-clock",
+    "description": "JS widget show clock in UTC time",
+    "keywords": [
+        "yii2",
+        "yii 2",
+        "widget",
+    ],
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "kodexpert",
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "kodexpert\\yii2\\widget\\clock\\": "src/"
+        }
+    }
+}
