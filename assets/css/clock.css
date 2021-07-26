@@ -1,16 +1,13 @@
 .clock {
     text-align: right;
-    font-size: 20px;
-    display: inline-block;
+    font-size: 18px;
+    padding-left: 20px;
 }
-.clock ul {
-    margin: 0 auto;
-    list-style: none;
+.clock .time-clock {
+    font-weight: bold;
 }
-.clock ul li {
-    display: inline;
-}
-.clock ul li.sep-clock {
+
+.clock .sep-clock {
     -moz-animation: myfade 1s ease infinite;
     -webkit-animation: myfade 1s ease infinite;
 }

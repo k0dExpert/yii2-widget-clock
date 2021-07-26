@@ -15,13 +15,24 @@ class ClockWidget extends Widget
     {
         $this->registerAssets();
 
-        $lines = [];
-        $lines[] = Html::tag('li', '00', ['class' => 'hours-clock']);
-        $lines[] = Html::tag('li', ':', ['class' => 'sep-clock']);
-        $lines[] = Html::tag('li', '00', ['class' => 'minutes-clock']);
+
+        $date = [];
+        $date[] = Html::tag('span', '01', ['class' => 'day-clock']);
+        $date[] = Html::tag('span', '01', ['class' => 'month-clock']);
+        $date[] = Html::tag('span', '2021', ['class' => 'year-clock']);
+
+        $time = [];
+        $time[] = Html::tag('span', '00', ['class' => 'hours-clock']);
+        $time[] = Html::tag('span', ':', ['class' => 'sep-clock']);
+        $time[] = Html::tag('span', '00', ['class' => 'minutes-clock']);
+        $time_output = Html::tag('span', implode("", $time), ['class' => 'time-clock']);
+
 
         $output = Html::tag('div',
-            Html::tag('ul', implode("\n", $lines)),
+            'UTC: ' .
+            implode(".", $date) .
+            ',&nbsp;' .
+            $time_output,
             [
                 'class' => 'clock',
                 'data-clock' => 'true',
