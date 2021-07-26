@@ -4,13 +4,13 @@
     "keywords": [
         "yii2",
         "yii 2",
-        "widget",
+        "widget"
     ],
     "type": "yii2-extension",
     "license": "MIT",
     "authors": [
         {
-            "name": "kodexpert",
+            "name": "kodexpert"
         }
     ],
     "require": {
