@@ -2,37 +2,41 @@ window.onload = function() {
 
     document.querySelectorAll('[data-clock=true]').forEach(function(clock){
 
-        let dateStart = clock.getAttribute('data-time') * 1;
+        let dateCurrent = clock.getAttribute('data-time') * 1;
 
-        let time_update = function(dateStart) {
+        let time_update = function(dateCurrent) {
 
+            let date = new Date(dateCurrent * 1000);
             // Day
-            let day = new Date(dateStart * 1000).getUTCDate();
+            let day = date.getUTCDate();
             clock.querySelector('.day-clock').innerHTML = (day < 10 ? '0' : '') + day;
 
             // Month
-            let month = new Date(dateStart * 1000).getUTCMonth();
+            let month = date.getUTCMonth();
             month += 1;
             clock.querySelector('.month-clock').innerHTML = (month < 10 ? '0' : '') + month;
 
             // Year
-            let year = new Date(dateStart * 1000).getUTCFullYear();
+            let year = date.getUTCFullYear();
             clock.querySelector('.year-clock').innerHTML = year;
 
             // Minutes
-            let minutes = new Date(dateStart * 1000).getUTCMinutes();
+            let minutes = date.getUTCMinutes();
             clock.querySelector('.minutes-clock').innerHTML = (minutes < 10 ? '0' : '') + minutes;
 
             // Hours
-            let hours = new Date(dateStart * 1000).getUTCHours();
+            let hours = date.getUTCHours();
             clock.querySelector('.hours-clock').innerHTML = (hours < 10 ? '0' : '') + hours;
         };
 
-        if (dateStart) {
-            time_update(dateStart);
+        if (dateCurrent) {
+            time_update(dateCurrent);
             setInterval(function (){
-                dateStart += 1;
-                time_update(dateStart);
+                let time = new Date().getTime();
+                let deltaTime = parseInt(time/1000) - dateCurrent;
+
+                dateCurrent += deltaTime;
+                time_update(dateCurrent);
             }, 1000);
         }
     });
